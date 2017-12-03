@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ConfigurationProvider'
-  s.version          = '0.0.1'
-  s.summary          = 'A short description of ConfigurationProvider.'
+  s.version          = '0.0.2'
+  s.summary          = 'ConfigurationProvider é um pod que engloba todo o acesso aos arquivos de configuração interna (plist) do app.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,25 +18,16 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+Ao criar o arquivo Configuration você pode criar ambientes diferentes e adicionar configurações em cada versão.
+É necessário também adicionar a chave Scheme no info.plist do seu app e informar qual ambiente você esta usando.
                        DESC
 
   s.homepage         = 'https://github.com/jjfernandes87/ConfigurationProvider'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'jjfernandes87' => 'julio.fernandes87@gmail.com' }
   s.source           = { :git => 'https://github.com/jjfernandes87/ConfigurationProvider.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-
-  s.ios.deployment_target = '8.0'
-
+  s.social_media_url = 'https://twitter.com/jfernandes87'
+  s.ios.deployment_target = '9.3'
   s.source_files = 'ConfigurationProvider/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'ConfigurationProvider' => ['ConfigurationProvider/Assets/*.png']
-  # }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end

@@ -1,8 +1,8 @@
 {
   "name": "ConfigurationProvider",
-  "version": "0.1.0",
-  "summary": "A short description of ConfigurationProvider.",
-  "description": "TODO: Add long description of the pod here.",
+  "version": "0.0.3",
+  "summary": "ConfigurationProvider é um pod que engloba todo o acesso aos arquivos de configuração interna (plist) do app.",
+  "description": "Ao criar o arquivo Configuration você pode criar ambientes diferentes e adicionar configurações em cada versão.\nÉ necessário também adicionar a chave Scheme no info.plist do seu app e informar qual ambiente você esta usando.",
   "homepage": "https://github.com/jjfernandes87/ConfigurationProvider",
   "license": {
     "type": "MIT",
@@ -13,10 +13,11 @@
   },
   "source": {
     "git": "https://github.com/jjfernandes87/ConfigurationProvider.git",
-    "tag": "0.1.0"
+    "tag": "0.0.3"
   },
+  "social_media_url": "https://twitter.com/jfernandes87",
   "platforms": {
-    "ios": "8.0"
+    "ios": "9.3"
   },
   "source_files": "ConfigurationProvider/Classes/**/*"
 }

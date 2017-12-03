@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ConfigurationProvider'
-  s.version          = '0.0.2'
+  s.version          = '0.0.3'
   s.summary          = 'ConfigurationProvider é um pod que engloba todo o acesso aos arquivos de configuração interna (plist) do app.'
 
 # This description is used to generate tags and improve search results.

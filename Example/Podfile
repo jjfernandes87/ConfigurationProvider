@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'ConfigurationProvider_Example' do
+  pod 'ConfigurationProvider', :path => '../'
+
+  target 'ConfigurationProvider_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

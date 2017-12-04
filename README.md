@@ -41,7 +41,6 @@ After to create your Configuration.plist you need to add a new key in your info.
 
 ```swift
 Scheme = [your environment: 'dev']
-]
 ```
 
 ## Author

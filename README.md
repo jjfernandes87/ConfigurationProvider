@@ -11,6 +11,10 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
+- iOS 9.3+
+- Xcode 9.0+
+- Swift 4.0+
+
 ## Installation
 
 ConfigurationProvider is available through [CocoaPods](http://cocoapods.org). To install
@@ -18,6 +22,26 @@ it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'ConfigurationProvider'
+```
+Then you need to create a plist file called Configuration
+
+```ruby
+Configuration.plist
+```
+
+The Configuration.plist is type Dictionary and you need to create the following struct
+
+```swift
+[your environment: 'dev']: [
+    'your settings'
+]
+```
+
+After to create your Configuration.plist you need to add a new key in your info.plist app, called Scheme
+
+```swift
+Scheme = [your environment: 'dev']
+]
 ```
 
 ## Author

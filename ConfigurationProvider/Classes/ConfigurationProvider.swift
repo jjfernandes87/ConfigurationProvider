@@ -18,7 +18,6 @@ public class ConfigurationProvider: NSObject {
     
     public static var instance: ConfigurationProvider!
     
-    let bundle = Bundle.main
     var configurations: NSDictionary?
     var schemeName: String?
     
@@ -42,11 +41,11 @@ public class ConfigurationProvider: NSObject {
     ///
     /// - Parameter tag: chave do Configuration.plist
     /// - Returns: valor da chave buscada
-    public func get<T>(_ tag: String) -> T? {
+    public func getBy<T>(tag: String) -> T? {
         
         /// Realiza a busca pela chave
-        guard let value: T = configurations?.get(path: tag) else {
-            abortForReason(.tagNotFound, details: "Tag not found: \(tag)")
+        guard let value: T = configurations?.getBy(path: tag) else {
+            abortForReason(reason: .tagNotFound, details: "Tag not found: \(tag)")
             return nil
         }
         
@@ -60,16 +59,16 @@ public class ConfigurationProvider: NSObject {
         
         /// Valida se existe o arquivo de configuração do app
         guard let data = openConfigurationPlist() else {
-            return abortForReason(.unableToLoad, details: "Configuration.plist not found!")
+            return abortForReason(reason: .unableToLoad, details: "Configuration.plist not found!")
         }
         
         /// Acessa a variável Scheme no info.plist da aplicação para acessar as informações do Configuration.plist
-        if let info = bundle.infoDictionary, let scheme = info["Scheme"] as? String {
+        if let info = Bundle.main.infoDictionary, let scheme = info["Scheme"] as? String {
             if let schemeConfigurations = data.object(forKey: scheme.replacingOccurrences(of: "\"", with: "")) as? NSDictionary {
                 configurations = schemeConfigurations
                 schemeName = String(describing: scheme)
             }  else {
-                abortForReason(.levelNotFound, details: "Scheme level not found: \(schemeName ?? "not scheme")")
+                abortForReason(reason: .levelNotFound, details: "Scheme level not found: \(schemeName ?? "not scheme")")
             }
         }
         
@@ -80,7 +79,7 @@ public class ConfigurationProvider: NSObject {
     /// - Returns: retorna os dados
     private func openConfigurationPlist() -> NSDictionary? {
         var allData: NSDictionary? = nil
-        if let path = bundle.path(forResource: "Configuration", ofType: "plist") {
+        if let path = Bundle.main.path(forResource: "Configuration", ofType: "plist") {
             let fileURL = URL(fileURLWithPath: path, isDirectory: false)
             allData =  NSDictionary(contentsOf: fileURL)
         }
@@ -92,7 +91,7 @@ public class ConfigurationProvider: NSObject {
     /// - Parameters:
     ///   - reason: Tipo de excessão que será lançado
     ///   - details: mensagem de erro para ajudar o desenvolvedor a analisar o erro
-    private func abortForReason(_ reason: ConfigurationProviderAbortReason, details: String) -> Void {
+    private func abortForReason(reason: ConfigurationProviderAbortReason, details: String) -> Void {
         let exceptionName: NSExceptionName!
         switch (reason) {
         case .unableToLoad:     exceptionName = NSExceptionName(rawValue: "ConfigurationProvider Error: Unable To Load")
@@ -110,11 +109,11 @@ public extension NSDictionary {
     ///
     /// - Parameter path: chave
     /// - Returns: valor
-    public func get<T>(path: String) -> T? {
+    public func getBy<T>(path: String) -> T? {
         let firstPart = path.contains(".") ? String(path[..<path.range(of: ".")!.lowerBound]) : path
         let secondPart = path.contains(".") ? String(path[path.range(of: ".")!.upperBound...]) : ""
         if let dictionary = self.object(forKey: firstPart) as? NSDictionary {
-            return dictionary.get(path: secondPart)
+            return dictionary.getBy(path: secondPart)
         } else {
             return self.object(forKey: firstPart) as? T
         }

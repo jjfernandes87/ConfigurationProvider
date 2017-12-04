@@ -19,17 +19,23 @@ class ConfigurationProvider_Tests: XCTestCase {
         super.tearDown()
     }
     
+    /// Testando a classe ConfigurationProvider
+    func testConfigurationProviderClass() {
+        let value: String = ConfigurationProvider.shared().getBy(tag: "name")!
+        XCTAssertTrue(value == "Dev", "Testando a classe ConfigurationProvider")
+    }
+    
     /// Teste simples para acessar chave do dicionário
     func testSimpleGetMethod() {
         let json: NSDictionary = ["name": "ConfigurationProvider"]
-        let value: String = json.get(path: "name")!
+        let value: String = json.getBy(path: "name")!
         XCTAssertTrue(value == "ConfigurationProvider", "Teste simples para acessar chave do dicionário")
     }
     
     /// Teste de acesso com chave composta para obter dados do dicionário
     func testCompositeGetMethod() {
         let json: NSDictionary = ["dev": ["name": "ConfigurationProvider"]]
-        let value: String = json.get(path: "dev.name")!
+        let value: String = json.getBy(path: "dev.name")!
         XCTAssertTrue(value == "ConfigurationProvider", "Teste de acesso com chave composta para obter dados do dicionário")
         
     }
@@ -38,7 +44,7 @@ class ConfigurationProvider_Tests: XCTestCase {
     func testPerformanceCompositeGetMethod() {
         let json: NSDictionary = ["dev": ["app": ["version": "0.0.3"]]]
         self.measure() {
-            let value: String = json.get(path: "dev.app.version")!
+            let value: String = json.getBy(path: "dev.app.version")!
             XCTAssertTrue(value == "0.0.3", "Teste de performace para chaves compostas")
         }
     }
@@ -47,7 +53,7 @@ class ConfigurationProvider_Tests: XCTestCase {
     func testPerformanceSimpleGetMethod() {
         let json: NSDictionary = ["name": "ConfigurationProvider"]
         self.measure() {
-            let value: String = json.get(path: "name")!
+            let value: String = json.getBy(path: "name")!
             XCTAssertTrue(value == "ConfigurationProvider", "Teste de performace para chaves simples")
         }
     }

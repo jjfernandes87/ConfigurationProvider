@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var label: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let value: String = ConfigurationProvider.shared().get("name") {
+        if let value: String = ConfigurationProvider.shared().getBy(tag: "name") {
             label.text = value
         }
     }

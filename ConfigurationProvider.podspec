@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ConfigurationProvider'
-  s.version          = '0.0.3'
-  s.summary          = 'ConfigurationProvider é um pod que engloba todo o acesso aos arquivos de configuração interna (plist) do app.'
+  s.version          = '0.0.4'
+  s.summary          = 'ConfigurationProvider is a pod that encompasses all access to the app's internal configuration files (plist).'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,8 +18,8 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-Ao criar o arquivo Configuration você pode criar ambientes diferentes e adicionar configurações em cada versão.
-É necessário também adicionar a chave Scheme no info.plist do seu app e informar qual ambiente você esta usando.
+When creating the Configuration file you can create different environments and add configurations in each version.
+You must also add the Scheme key in your app's info.plist and tell which environment you are using.
                        DESC
 
   s.homepage         = 'https://github.com/jjfernandes87/ConfigurationProvider'

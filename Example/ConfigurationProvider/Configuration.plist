@@ -6,6 +6,13 @@
 	<dict>
 		<key>name</key>
 		<string>Dev</string>
+		<key>endpoints</key>
+		<dict>
+			<key>busca</key>
+			<string>http://busca.com</string>
+			<key>detalhe</key>
+			<string>http://detalhe/[id]/</string>
+		</dict>
 	</dict>
 </dict>
 </plist>

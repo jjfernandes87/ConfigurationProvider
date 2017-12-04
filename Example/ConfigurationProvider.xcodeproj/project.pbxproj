@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		30A238B3530C09E73878460A /* Pods_ConfigurationProvider_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B48755E9ABFA87445418B7 /* Pods_ConfigurationProvider_Example.framework */; };
+		431EE8FE1FD5B1FC00E52E48 /* URLConfigurationProvider_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431EE8FD1FD5B1FC00E52E48 /* URLConfigurationProvider_Tests.swift */; };
 		4F40A636D110CBFEE57C7DE1 /* Pods_ConfigurationProvider_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C536BD0C60085A5404CC5669 /* Pods_ConfigurationProvider_Tests.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -33,6 +34,7 @@
 		10A98B6AE628329D1A3A3F03 /* Pods-ConfigurationProvider_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConfigurationProvider_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ConfigurationProvider_Tests/Pods-ConfigurationProvider_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		2B7A1225A9284BCCD8BA0308 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		3EEB4C4A54D163F468207C06 /* ConfigurationProvider.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ConfigurationProvider.podspec; path = ../ConfigurationProvider.podspec; sourceTree = "<group>"; };
+		431EE8FD1FD5B1FC00E52E48 /* URLConfigurationProvider_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConfigurationProvider_Tests.swift; sourceTree = "<group>"; };
 		4C6CAA2B763C7A7587C04218 /* Pods-ConfigurationProvider_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConfigurationProvider_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ConfigurationProvider_Example/Pods-ConfigurationProvider_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* ConfigurationProvider_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConfigurationProvider_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 		FC9CFCC31FD4BD2F0092F0E7 /* ConfigurationProvider_Tests */ = {
 			isa = PBXGroup;
 			children = (
+				431EE8FD1FD5B1FC00E52E48 /* URLConfigurationProvider_Tests.swift */,
 				FC9CFCC41FD4BD2F0092F0E7 /* ConfigurationProvider_Tests.swift */,
 				FC9CFCC61FD4BD2F0092F0E7 /* Info.plist */,
 			);
@@ -217,7 +220,6 @@
 					};
 					FC9CFCC11FD4BD2F0092F0E7 = {
 						CreatedOnToolsVersion = 9.1;
-						DevelopmentTeam = 6BPH8672S8;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -380,6 +382,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC9CFCC51FD4BD2F0092F0E7 /* ConfigurationProvider_Tests.swift in Sources */,
+				431EE8FE1FD5B1FC00E52E48 /* URLConfigurationProvider_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -561,7 +564,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 6BPH8672S8;
+				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = ConfigurationProvider_Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
@@ -587,7 +590,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6BPH8672S8;
+				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = ConfigurationProvider_Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;

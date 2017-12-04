@@ -45,7 +45,7 @@ public class ConfigurationProvider: NSObject {
         
         /// Realiza a busca pela chave
         guard let value: T = configurations?.getBy(path: tag) else {
-            abortForReason(reason: .tagNotFound, details: "Tag not found: \(tag)")
+            abortFor(reason: .tagNotFound, details: "Tag not found: \(tag)")
             return nil
         }
         
@@ -59,7 +59,7 @@ public class ConfigurationProvider: NSObject {
         
         /// Valida se existe o arquivo de configuração do app
         guard let data = openConfigurationPlist() else {
-            return abortForReason(reason: .unableToLoad, details: "Configuration.plist not found!")
+            return abortFor(reason: .unableToLoad, details: "Configuration.plist not found!")
         }
         
         /// Acessa a variável Scheme no info.plist da aplicação para acessar as informações do Configuration.plist
@@ -68,7 +68,7 @@ public class ConfigurationProvider: NSObject {
                 configurations = schemeConfigurations
                 schemeName = String(describing: scheme)
             }  else {
-                abortForReason(reason: .levelNotFound, details: "Scheme level not found: \(schemeName ?? "not scheme")")
+                abortFor(reason: .levelNotFound, details: "Scheme level not found: \(schemeName ?? "not scheme")")
             }
         }
         
@@ -91,7 +91,7 @@ public class ConfigurationProvider: NSObject {
     /// - Parameters:
     ///   - reason: Tipo de excessão que será lançado
     ///   - details: mensagem de erro para ajudar o desenvolvedor a analisar o erro
-    private func abortForReason(reason: ConfigurationProviderAbortReason, details: String) -> Void {
+    private func abortFor(reason: ConfigurationProviderAbortReason, details: String) -> Void {
         let exceptionName: NSExceptionName!
         switch (reason) {
         case .unableToLoad:     exceptionName = NSExceptionName(rawValue: "ConfigurationProvider Error: Unable To Load")
@@ -112,7 +112,7 @@ public extension NSDictionary {
     public func getBy<T>(path: String) -> T? {
         let firstPart = path.contains(".") ? String(path[..<path.range(of: ".")!.lowerBound]) : path
         let secondPart = path.contains(".") ? String(path[path.range(of: ".")!.upperBound...]) : ""
-        if let dictionary = self.object(forKey: firstPart) as? NSDictionary {
+        if let dictionary = self.object(forKey: firstPart) as? NSDictionary, secondPart != "" {
             return dictionary.getBy(path: secondPart)
         } else {
             return self.object(forKey: firstPart) as? T

@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import ConfigurationProvider
+import ConfigurationProvider
 
 class ConfigurationProvider_Tests: XCTestCase {
     

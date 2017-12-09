@@ -49,6 +49,8 @@ Então você precisa criar um arquivo plist chamado Configuration
 Configuration.plist
 ```
 
+<img src="https://github.com/jjfernandes87/ConfigurationProvider/blob/master/imagens/plistFile.png" width="522" height="160" margin="10xp">
+
 O Configuration.plist é do tipo Dictionary e você precisa criar as chaves de configurações do seu app
 
 ```swift
@@ -58,11 +60,15 @@ O Configuration.plist é do tipo Dictionary e você precisa criar as chaves de c
 ]
 ```
 
+<img src="https://github.com/jjfernandes87/ConfigurationProvider/blob/master/imagens/configurationDetails.png" width="987" height="422" margin="10xp">
+
 Depois de criar e configurar seu Configuration.plist, você precisa adicionar uma chave no arquivo info.plist app, called Scheme
 
 ```swift
 Scheme = 'debug'
 ```
+
+<img src="https://github.com/jjfernandes87/ConfigurationProvider/blob/master/imagens/infoDetails.png" width="1518" height="660" margin="10xp">
 
 ## Author
 

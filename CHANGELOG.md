@@ -1,3 +1,8 @@
+##  1.1.0
+* Merge pull request #2 from jjfernandes87/feature/add-domain - Julio Fernandes Jr
+* Change version number: 1.1.0 - Julio Fernandes
+* Adicionando validação de domain para abstrair domain repetido no Configuration.plist - Julio Fernandes
+
 ##  1.0.0
 * Merge pull request #1 from jjfernandes87/feature/add-fastlane - Julio Fernandes Jr
 * Change version number: 1.0.0 - Julio Fernandes

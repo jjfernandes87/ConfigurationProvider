@@ -43,4 +43,16 @@ class URLConfigurationProvider_Tests: XCTestCase {
         XCTAssertEqual(value, URL(string: "http://detalhe/12345/")!)
     }
     
+    /// Testando busca de url com domain
+    func testURLConfigurationProviderByURLWithDomain() {
+        let value: URL = URLConfigurationProvider.urlBy(tag: "hasDomain", hasDomain: true)!
+        XCTAssertEqual(value, URL(string: "http://domain.com.br/domain")!)
+    }
+    
+    /// Testando busca de url com domain
+    func testURLConfigurationProviderByStringWithDomain() {
+        let value: String = URLConfigurationProvider.urlStringBy(tag: "hasDomain", hasDomain: true)!
+        XCTAssertEqual(value, "http://domain.com.br/domain")
+    }
+    
 }

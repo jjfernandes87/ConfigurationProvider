@@ -13,6 +13,7 @@ enum URLConfigurationProviderAbortReason : Int {
     case invalidURL
     case tagNotFound
     case levelNotFound
+    case domainNotFound
 }
 
 public class URLConfigurationProvider: NSObject {
@@ -32,20 +33,13 @@ public class URLConfigurationProvider: NSObject {
     
     /// Busca pela URL no arquivo de Configuration.plist
     ///
-    /// - Parameter tag: chave no arquivo de configuração
-    /// - Returns: retorna a URL
-    public class func urlBy(tag: String) -> URL? {
-        return urlBy(tag: tag, replacements: nil)
-    }
-    
-    /// Busca pela URL no arquivo de Configuration.plist
-    ///
     /// - Parameters:
     ///   - tag: chave no arquivo de configuração
     ///   - replacements: parametros para ser substituido na URL original
+    ///   - hasDomain: caso exista a chave domain
     /// - Returns: retorna a URL
-    public class func urlBy(tag: String, replacements: NSDictionary?) -> URL? {
-        if let url = urlStringBy(tag: tag, replacements: replacements) {
+    public class func urlBy(tag: String, replacements: NSDictionary? = nil, hasDomain: Bool = false) -> URL? {
+        if let url = urlStringBy(tag: tag, replacements: replacements, hasDomain: hasDomain) {
             return URL(string: url)
         }
         
@@ -54,20 +48,13 @@ public class URLConfigurationProvider: NSObject {
     
     /// Busca pela URL (String) no arquivo de Configuration.plist
     ///
-    /// - Parameter tag: chave no arquivo de configuração
-    /// - Returns: retorna a URL (String)
-    public class func urlStringBy(tag: String) -> String? {
-        return urlStringBy(tag: tag, replacements: nil)
-    }
-    
-    /// Busca pela URL (String) no arquivo de Configuration.plist
-    ///
     /// - Parameters:
     ///   - tag: chave no arquivo de configuração
     ///   - replacements: parametros para ser substituido na URL original
+    ///   - hasDomain: caso exista a chave domain
     /// - Returns: retorna a URL (String)
-    public class func urlStringBy(tag: String, replacements: NSDictionary?) -> String? {
-        return URLConfigurationProvider.shared().urlStringBy(tag: tag, replacements: replacements)
+    public class func urlStringBy(tag: String, replacements: NSDictionary? = nil, hasDomain: Bool = false) -> String? {
+        return URLConfigurationProvider.shared().urlStringBy(tag: tag, replacements: replacements, hasDomain: hasDomain)
     }
     
     //MARK: - Private Methods
@@ -78,7 +65,7 @@ public class URLConfigurationProvider: NSObject {
     ///   - tag: chave no arquivo de configuração
     ///   - replacements: parametros para ser substituido na URL original
     /// - Returns: retorna a URL (String)
-    private func urlStringBy(tag: String, replacements: NSDictionary?) -> String? {
+    private func urlStringBy(tag: String, replacements: NSDictionary?, hasDomain: Bool) -> String? {
         
         guard let endpoints: NSDictionary = ConfigurationProvider.shared().getBy(tag: "endpoints") else {
             abortFor(reason: .tagNotFound, details: "Tag not found: \(tag)")
@@ -88,6 +75,15 @@ public class URLConfigurationProvider: NSObject {
         guard var urlString: String = endpoints.getBy(path: tag) else {
             abortFor(reason: .tagNotFound, details: "Tag not found: \(tag)")
             return nil
+        }
+        
+        if hasDomain {
+            guard let domain: String = ConfigurationProvider.shared().getBy(tag: "domain") else {
+                abortFor(reason: .domainNotFound, details: "Domain not found")
+                return nil
+            }
+            
+            urlString = String(format: "%@%@", domain, urlString)
         }
         
         if let keys = replacements?.allKeys {
@@ -120,6 +116,7 @@ public class URLConfigurationProvider: NSObject {
         case .levelNotFound:    exceptionName = NSExceptionName(rawValue: "URLConfigurationProvider Error: Level Not Found")
         case .tagNotFound:      exceptionName = NSExceptionName(rawValue: "URLConfigurationProvider Error: Tag Not Found")
         case .invalidURL:       exceptionName = NSExceptionName(rawValue: "URLConfigurationProvider Error: Invalid URL")
+        case .domainNotFound:   exceptionName = NSExceptionName(rawValue: "URLConfigurationProvider Error: Invalid Domain")
         default:                exceptionName = NSExceptionName(rawValue: "ConfigurationProvider Error: Unknown error")
         }
         NSException(name: exceptionName, reason: details, userInfo: nil).raise()

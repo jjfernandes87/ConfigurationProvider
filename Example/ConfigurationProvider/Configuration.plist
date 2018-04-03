@@ -6,24 +6,32 @@
 	<dict>
 		<key>name</key>
 		<string>Dev</string>
+		<key>domain</key>
+		<string>http://domain.com.br/</string>
 		<key>endpoints</key>
 		<dict>
 			<key>busca</key>
 			<string>http://busca.com</string>
 			<key>detalhe</key>
 			<string>http://detalhe/[id]/</string>
+			<key>hasDomain</key>
+			<string>domain</string>
 		</dict>
 	</dict>
 	<key>release</key>
 	<dict>
 		<key>name</key>
 		<string>Release</string>
+		<key>domain</key>
+		<string>http://domain.com.br/</string>
 		<key>endpoints</key>
 		<dict>
 			<key>busca</key>
 			<string>http://busca.com</string>
 			<key>detalhe</key>
 			<string>http://detalhe/[id]/</string>
+			<key>hasDomain</key>
+			<string>domain</string>
 		</dict>
 	</dict>
 </dict>

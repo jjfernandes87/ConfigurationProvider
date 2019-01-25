@@ -1,4 +1,10 @@
 ##  1.2.0
+* Publish pod version: 1.2.0 [ci skip] - Julio Junior
+* Change version number: 1.2.0 - Julio Junior
+* change url github - Julio Junior
+* Change URLConfigurationProvider to default exemple for replace url - Julio Junior
+
+##  1.2.0
 * Change version number: 1.2.0 - Julio Junior
 * change url github - Julio Junior
 * Change URLConfigurationProvider to default exemple for replace url - Julio Junior

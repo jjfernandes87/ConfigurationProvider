@@ -13,7 +13,7 @@
 			<key>busca</key>
 			<string>http://busca.com</string>
 			<key>detalhe</key>
-			<string>http://detalhe/[id]/</string>
+			<string>http://detalhe/{id}/</string>
 			<key>hasDomain</key>
 			<string>domain</string>
 		</dict>
@@ -29,7 +29,7 @@
 			<key>busca</key>
 			<string>http://busca.com</string>
 			<key>detalhe</key>
-			<string>http://detalhe/[id]/</string>
+			<string>http://detalhe/{id}/</string>
 			<key>hasDomain</key>
 			<string>domain</string>
 		</dict>

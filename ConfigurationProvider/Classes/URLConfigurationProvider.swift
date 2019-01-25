@@ -88,7 +88,7 @@ public class URLConfigurationProvider: NSObject {
         
         if let keys = replacements?.allKeys {
             for key in keys {
-                let pathKey = "[\(key)]"
+                let pathKey = "{\(key)}"
                 let pathValue = replacements?.object(forKey: key) as! String
                 urlString = urlString.replacingOccurrences(of: pathKey, with: pathValue)
             }

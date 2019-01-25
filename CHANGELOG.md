@@ -1,3 +1,8 @@
+##  1.2.0
+* Change version number: 1.2.0 - Julio Junior
+* change url github - Julio Junior
+* Change URLConfigurationProvider to default exemple for replace url - Julio Junior
+
 ##  1.1.0
 * Merge pull request #2 from jjfernandes87/feature/add-domain - Julio Fernandes Jr
 * Change version number: 1.1.0 - Julio Fernandes

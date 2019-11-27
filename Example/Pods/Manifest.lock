@@ -1,16 +1,16 @@
 PODS:
-  - ConfigurationProvider (0.0.3)
+  - ConfigurationProvider (1.2.0)
 
 DEPENDENCIES:
   - ConfigurationProvider (from `../`)
 
 EXTERNAL SOURCES:
   ConfigurationProvider:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  ConfigurationProvider: f15f275c12eeae4248196b1c234284c834e6bb5d
+  ConfigurationProvider: 3f7edf6c7108fef45ff4706588edb8e04ccb52e1
 
 PODFILE CHECKSUM: fcfce1e172cb23f808ac5e7c7f48385a8fdc485d
 
-COCOAPODS: 1.3.0
+COCOAPODS: 1.8.3

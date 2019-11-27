@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ConfigurationProvider  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+
+    <a title="ConfigurationProvider  Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="index.html">
+          ConfigurationProvider Docs
+        </a>
+         (63% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/jjfernandes87/ConfigurationProvider.git">
+            <img class="header-icon" src="img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="dash-feed://https%3A%2F%2Fgithub%2Ecom%2Fjjfernandes87%2Fdocsets%2FConfigurationProvider%2Exml">
+            <img class="header-icon" src="img/dash.png"/>
+            Install in Dash
+          </a>
+        </p>
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="index.html">ConfigurationProvider Reference</a>
+      <img class="carat" src="img/carat.png" />
+      ConfigurationProvider  Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/ConfigurationProvider.html">ConfigurationProvider</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Classes/URLConfigurationProvider.html">URLConfigurationProvider</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Extensions/NSDictionary.html">NSDictionary</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content">
+            
+            <h1 id='configurationprovider' class='heading'>ConfigurationProvider</h1>
+
+<p>ConfigurationProvider é uma biblioteca para centralizar configurações do seu app escrita em Swift.</p>
+
+<p><a href="https://travis-ci.org/jjfernandes87/ConfigurationProvider"><img src="http://img.shields.io/travis/jjfernandes87/ConfigurationProvider.svg?style=flat" alt="CI Status"></a>
+<a href="http://cocoapods.org/pods/ConfigurationProvider"><img src="https://img.shields.io/cocoapods/v/ConfigurationProvider.svg?style=flat" alt="Version"></a>
+<a href="http://cocoapods.org/pods/ConfigurationProvider"><img src="https://img.shields.io/cocoapods/l/ConfigurationProvider.svg?style=flat" alt="License"></a>
+<a href="http://cocoapods.org/pods/ConfigurationProvider"><img src="https://img.shields.io/cocoapods/p/ConfigurationProvider.svg?style=flat" alt="Platform"></a></p>
+<h2 id='features' class='heading'>Features</h2>
+
+<ul>
+<li>[x] Arquivo plist para agrupar as configurações do seu app (Configuration.plist)</li>
+<li>[x] Método getBy<T>(tag: String) para acessar as variáveis do plist</li>
+<li>[x] Criação de schemes (desenv, homol, release)</li>
+<li>[x] Opção de agrupar endpoints, dominios e headers http</li>
+<li>[x] Buscar por endpoints com retorno URL</li>
+<li>[x] Buscar por endpoints com retorno String</li>
+<li>[x] Opção de buscar por endpoints e passar paremetros para substituição no endPoint [<q>id</q>, <q>seu_id</q>] =&gt; /ficha/[id] = /ficha/[seu_id]</li>
+<li>[x] NSException para informar erros de tag, level ou invalid url</li>
+<li>[x] Cobertura de testes de integração</li>
+</ul>
+<h2 id='requirements' class='heading'>Requirements</h2>
+
+<ul>
+<li>iOS 9.3+</li>
+<li>Xcode 9.0+</li>
+<li>Swift 4.0+</li>
+</ul>
+<h2 id='communication' class='heading'>Communication</h2>
+
+<ul>
+<li>Se você <strong>encontrou um bug</strong>, abra uma issue.</li>
+<li>Se você <strong>tem uma nova feature</strong>, abra uma issue.</li>
+<li>Se você <strong>quer contribuir</strong>, envie uma pull request.</li>
+</ul>
+<h2 id='example' class='heading'>Example</h2>
+
+<p>Para rodar o projeto de exemplo, clone o repositório, e rode o comando <code>pod install</code> no diretório Example primeiro.</p>
+<h2 id='installation' class='heading'>Installation</h2>
+
+<p>ConfigurationProvider esta disponível através <a href="http://cocoapods.org">CocoaPods</a>. Para instalar, basta adicionar a linha abaixo no seu Podfile:</p>
+<pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'ConfigurationProvider'</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'https://github.com/jjfernandes87/ConfigurationProvider.git'</span>
+</code></pre>
+
+<p>Então você precisa criar um arquivo plist chamado Configuration</p>
+<pre class="highlight ruby"><code><span class="no">Configuration</span><span class="p">.</span><span class="nf">plist</span>
+</code></pre>
+
+<p><img src="https://github.com/jjfernandes87/ConfigurationProvider/blob/master/imagens/plistFile.png" width="261" height="80" margin="10xp"></p>
+
+<p>O Configuration.plist é do tipo Dictionary e você precisa criar as chaves de configurações do seu app</p>
+<pre class="highlight swift"><code><span class="p">[</span><span class="err">'</span><span class="kt">Root</span><span class="err">'</span><span class="p">]:</span> <span class="p">[</span>
+    <span class="p">[</span><span class="err">'</span><span class="n">debug</span><span class="err">'</span><span class="p">]:</span> <span class="p">[</span><span class="err">'</span><span class="n">your</span> <span class="n">settings</span><span class="err">'</span><span class="p">],</span>
+    <span class="p">[</span><span class="err">'</span><span class="n">release</span><span class="err">'</span><span class="p">]:</span> <span class="p">[</span><span class="err">'</span><span class="n">your</span> <span class="n">settings</span><span class="err">'</span><span class="p">]</span>
+<span class="p">]</span>
+</code></pre>
+
+<p><img src="https://github.com/jjfernandes87/ConfigurationProvider/blob/master/imagens/configurationDetails.png" width="492" height="211" margin="10xp"></p>
+
+<p>Depois de criar e configurar seu Configuration.plist, você precisa adicionar uma chave no arquivo info.plist app, called Scheme</p>
+<pre class="highlight swift"><code><span class="kt">Scheme</span> <span class="o">=</span> <span class="err">'</span><span class="n">debug</span><span class="err">'</span>
+</code></pre>
+
+<p><img src="https://github.com/jjfernandes87/ConfigurationProvider/blob/master/imagens/infoDetails.png" width="759" height="330" margin="10xp"></p>
+<h2 id='author' class='heading'>Author</h2>
+
+<p>jjfernandes87, <a href="mailto:julio.fernandes87@gmail.com">julio.fernandes87@gmail.com</a></p>
+<h2 id='license' class='heading'>License</h2>
+
+<p>ConfigurationProvider is available under the MIT license. See the LICENSE file for more info.</p>
+
+          </div>
+        </section>
+
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>&copy; 2019 <a class="link" href="https://github.com/jjfernandes87" target="_blank" rel="external">Julio Fernandes Junior</a>. All rights reserved. (Last updated: 2019-11-27)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>

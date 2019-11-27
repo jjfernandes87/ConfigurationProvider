@@ -1,0 +1,8 @@
+author: Julio Fernandes Junior
+author_url: https://github.com/jjfernandes87
+github_url: https://github.com/jjfernandes87/ConfigurationProvider.git
+root_url: https://github.com/jjfernandes87/ConfigurationProvider.git
+module: ConfigurationProvider
+output: docs
+theme: fullwidth
+xcodebuild_arguments: [-workspace, './Example/ConfigurationProvider.xcworkspace', -scheme, 'ConfigurationProvider']

@@ -109,7 +109,7 @@ public extension NSDictionary {
     ///
     /// - Parameter path: chave
     /// - Returns: valor
-    public func getBy<T>(path: String) -> T? {
+    func getBy<T>(path: String) -> T? {
         let firstPart = path.contains(".") ? String(path[..<path.range(of: ".")!.lowerBound]) : path
         let secondPart = path.contains(".") ? String(path[path.range(of: ".")!.upperBound...]) : ""
         if let dictionary = self.object(forKey: firstPart) as? NSDictionary, secondPart != "" {

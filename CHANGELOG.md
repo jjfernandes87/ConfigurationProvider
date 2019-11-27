@@ -1,3 +1,7 @@
+##  2.0.0
+* Change version number: 2.0.0 - Julio Fernandes
+* Adicionando documentação e alterando para swift 5.0 - Julio Fernandes
+
 ##  1.2.0
 * Publish pod version: 1.2.0 [ci skip] - Julio Junior
 * Change version number: 1.2.0 - Julio Junior

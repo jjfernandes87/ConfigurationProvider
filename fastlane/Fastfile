@@ -21,7 +21,7 @@ end
 
 def cocoapods 
 {
-    podspec: "./#{pod_name}.podspec",
+    podspec: "./Sources/#{pod_name}.podspec",
     pod_name: "#{pod_name}"
 }
 end

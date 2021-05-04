@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name             = 'ConfigurationProvider'
-s.version          = '2.0.0'
+s.version          = '2.1.0'
 s.license          = { :type => 'MIT', :file => 'LICENSE' }
 s.summary          = 'ConfigurationProvider is a pod that encompasses all access to the apps internal configuration files (plist).'
 s.homepage         = 'https://github.com/jjfernandes87/ConfigurationProvider'

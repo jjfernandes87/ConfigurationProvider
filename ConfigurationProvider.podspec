@@ -9,6 +9,6 @@ s.author           = { 'jjfernandes87' => 'julio.fernandes87@gmail.com' }
 s.source           = { :git => 'https://github.com/jjfernandes87/ConfigurationProvider.git', :tag => s.version }
 
 s.ios.deployment_target = '9.3'
-s.source_files = 'Sources/ConfigurationProvider/Classes/**/*'
+s.source_files = 'Sources/**/*'
 
 end

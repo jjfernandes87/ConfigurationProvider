@@ -1,4 +1,15 @@
 ##  2.1.0
+* Publish pod version: 2.1.0 [ci skip] - Julio Junior
+* hotfix fasfile - Julio Junior
+* Change version number: 2.1.0 - Julio Junior
+* Merge pull request #3 from ezequieloliveiralima/master - Julio Fernandes Jr
+* Downgrade versão swift - Ezequiel de Oliveira Lima
+* Ajuste podspec - Ezequiel de Oliveira Lima
+* Atualizando Changelog - Ezequiel de Oliveira Lima
+* Atualizando versão do podspec. - Ezequiel de Oliveira Lima
+* Adicionando suporte a SPM - Ezequiel de Oliveira Lima
+
+##  2.1.0
 * hotfix fasfile - Julio Junior
 * Change version number: 2.1.0 - Julio Junior
 * Merge pull request #3 from ezequieloliveiralima/master - Julio Fernandes Jr

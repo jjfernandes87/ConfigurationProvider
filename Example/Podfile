@@ -3,7 +3,7 @@ use_frameworks!
 platform :ios, '9.3'
 
 target 'ConfigurationProvider_Example' do
-    pod 'ConfigurationProvider', :path => '../'
+    pod 'ConfigurationProvider', :path => '../Sources/'
 
     target 'ConfigurationProvider_Tests' do
         inherit! :search_paths

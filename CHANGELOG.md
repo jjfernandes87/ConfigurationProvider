@@ -1,3 +1,7 @@
+## 2.1.0
+* Change version number: 2.1.0 - Ezequiel de Oliveira Lima
+* Adding Swift Package Manager (SPM) support - Ezequiel de Oliveira Lima
+
 ##  2.0.0
 * Change version number: 2.0.0 - Julio Fernandes
 * Adicionando documentação e alterando para swift 5.0 - Julio Fernandes

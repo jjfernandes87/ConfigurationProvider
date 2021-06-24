@@ -1,3 +1,12 @@
+##  2.1.0
+* Change version number: 2.1.0 - Julio Junior
+* Merge pull request #3 from ezequieloliveiralima/master - Julio Fernandes Jr
+* Downgrade versão swift - Ezequiel de Oliveira Lima
+* Ajuste podspec - Ezequiel de Oliveira Lima
+* Atualizando Changelog - Ezequiel de Oliveira Lima
+* Atualizando versão do podspec. - Ezequiel de Oliveira Lima
+* Adicionando suporte a SPM - Ezequiel de Oliveira Lima
+
 ## 2.1.0
 * Change version number: 2.1.0 - Ezequiel de Oliveira Lima
 * Adding Swift Package Manager (SPM) support - Ezequiel de Oliveira Lima

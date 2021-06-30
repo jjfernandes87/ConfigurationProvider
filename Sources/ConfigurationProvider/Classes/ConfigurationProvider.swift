@@ -52,6 +52,22 @@ public class ConfigurationProvider: NSObject {
         return value
     }
     
+    /// Cria a excessão e informa o erro ocorrido
+    ///
+    /// - Parameters:
+    ///   - reason: Tipo de excessão que será lançado
+    ///   - details: mensagem de erro para ajudar o desenvolvedor a analisar o erro
+    func abortFor(reason: ConfigurationProviderAbortReason, details: String) -> Void {
+        let exceptionName: NSExceptionName!
+        switch (reason) {
+        case .unableToLoad:     exceptionName = NSExceptionName(rawValue: "ConfigurationProvider Error: Unable To Load")
+        case .levelNotFound:    exceptionName = NSExceptionName(rawValue: "ConfigurationProvider Error: Level Not Found")
+        case .tagNotFound:      exceptionName = NSExceptionName(rawValue: "ConfigurationProvider Error: Tag Not Found")
+        default:                exceptionName = NSExceptionName(rawValue: "ConfigurationProvider Error: Unknown error")
+        }
+        NSException(name: exceptionName, reason: details, userInfo: nil).raise()
+    }
+    
     //MARK: - Private Methods
     
     /// Abre o Configuration.plist para acessar as informações internas
@@ -85,22 +101,6 @@ public class ConfigurationProvider: NSObject {
         }
         return allData
     }
-    
-    /// Cria a excessão e informa o erro ocorrido
-    ///
-    /// - Parameters:
-    ///   - reason: Tipo de excessão que será lançado
-    ///   - details: mensagem de erro para ajudar o desenvolvedor a analisar o erro
-    private func abortFor(reason: ConfigurationProviderAbortReason, details: String) -> Void {
-        let exceptionName: NSExceptionName!
-        switch (reason) {
-        case .unableToLoad:     exceptionName = NSExceptionName(rawValue: "ConfigurationProvider Error: Unable To Load")
-        case .levelNotFound:    exceptionName = NSExceptionName(rawValue: "ConfigurationProvider Error: Level Not Found")
-        case .tagNotFound:      exceptionName = NSExceptionName(rawValue: "ConfigurationProvider Error: Tag Not Found")
-        default:                exceptionName = NSExceptionName(rawValue: "ConfigurationProvider Error: Unknown error")
-        }
-        NSException(name: exceptionName, reason: details, userInfo: nil).raise()
-    }
 }
 
 public extension NSDictionary {
@@ -119,4 +119,3 @@ public extension NSDictionary {
         }
     }
 }
-

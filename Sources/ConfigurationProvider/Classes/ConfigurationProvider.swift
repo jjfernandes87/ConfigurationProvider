@@ -52,13 +52,20 @@ public class ConfigurationProvider: NSObject {
         return value
     }
     
-    public func getBy<T>(tag: String, bundle: Bundle) -> T? {
-        let configuration = getConfigurations(for: bundle)
-        guard let value: T = configuration?.getBy(path: tag) else {
-            abortFor(reason: .tagNotFound, details: "Tag not found: \(tag)")
-            return nil
+    /// Cria a excessão e informa o erro ocorrido
+    ///
+    /// - Parameters:
+    ///   - reason: Tipo de excessão que será lançado
+    ///   - details: mensagem de erro para ajudar o desenvolvedor a analisar o erro
+    func abortFor(reason: ConfigurationProviderAbortReason, details: String) -> Void {
+        let exceptionName: NSExceptionName!
+        switch (reason) {
+        case .unableToLoad:     exceptionName = NSExceptionName(rawValue: "ConfigurationProvider Error: Unable To Load")
+        case .levelNotFound:    exceptionName = NSExceptionName(rawValue: "ConfigurationProvider Error: Level Not Found")
+        case .tagNotFound:      exceptionName = NSExceptionName(rawValue: "ConfigurationProvider Error: Tag Not Found")
+        default:                exceptionName = NSExceptionName(rawValue: "ConfigurationProvider Error: Unknown error")
         }
-        return value
+        NSException(name: exceptionName, reason: details, userInfo: nil).raise()
     }
     
     //MARK: - Private Methods
@@ -83,34 +90,6 @@ public class ConfigurationProvider: NSObject {
         
     }
     
-    private func getConfigurations(for bundle: Bundle) -> NSDictionary? {
-        guard let data = openConfigurationPlist(with: bundle) else {
-            abortFor(reason: .unableToLoad, details: "Configuration.plist not found!")
-            return nil
-        }
-        
-        if let info = Bundle.main.infoDictionary, let scheme = info["Scheme"] as? String {
-            if let schemeConfigurations = data.object(forKey: scheme.replacingOccurrences(of: "\"", with: "")) as? NSDictionary {
-                return schemeConfigurations
-//                configurations = schemeConfigurations
-//                schemeName = String(describing: scheme)
-                
-            }  else {
-                abortFor(reason: .levelNotFound, details: "Scheme level not found: \(schemeName ?? "not scheme")")
-            }
-        }
-        return nil
-    }
-    
-    private func openConfigurationPlist(with bundle: Bundle) -> NSDictionary? {
-        var allData: NSDictionary? = nil
-        if let path = bundle.path(forResource: "Configuration", ofType: "plist") {
-            let fileURL = URL(fileURLWithPath: path, isDirectory: false)
-            allData = NSDictionary(contentsOf: fileURL)
-        }
-        return allData
-    }
-    
     /// Abre o arquivo Configuration e retorna suas informações
     ///
     /// - Returns: retorna os dados
@@ -121,22 +100,6 @@ public class ConfigurationProvider: NSObject {
             allData =  NSDictionary(contentsOf: fileURL)
         }
         return allData
-    }
-    
-    /// Cria a excessão e informa o erro ocorrido
-    ///
-    /// - Parameters:
-    ///   - reason: Tipo de excessão que será lançado
-    ///   - details: mensagem de erro para ajudar o desenvolvedor a analisar o erro
-    private func abortFor(reason: ConfigurationProviderAbortReason, details: String) -> Void {
-        let exceptionName: NSExceptionName!
-        switch (reason) {
-        case .unableToLoad:     exceptionName = NSExceptionName(rawValue: "ConfigurationProvider Error: Unable To Load")
-        case .levelNotFound:    exceptionName = NSExceptionName(rawValue: "ConfigurationProvider Error: Level Not Found")
-        case .tagNotFound:      exceptionName = NSExceptionName(rawValue: "ConfigurationProvider Error: Tag Not Found")
-        default:                exceptionName = NSExceptionName(rawValue: "ConfigurationProvider Error: Unknown error")
-        }
-        NSException(name: exceptionName, reason: details, userInfo: nil).raise()
     }
 }
 
@@ -156,4 +119,3 @@ public extension NSDictionary {
         }
     }
 }
-

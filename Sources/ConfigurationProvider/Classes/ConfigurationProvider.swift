@@ -52,6 +52,15 @@ public class ConfigurationProvider: NSObject {
         return value
     }
     
+    public func getBy<T>(tag: String, bundle: Bundle) -> T? {
+        let configuration = getConfigurations(for: bundle)
+        guard let value: T = configuration?.getBy(path: tag) else {
+            abortFor(reason: .tagNotFound, details: "Tag not found: \(tag)")
+            return nil
+        }
+        return value
+    }
+    
     //MARK: - Private Methods
     
     /// Abre o Configuration.plist para acessar as informações internas
@@ -72,6 +81,34 @@ public class ConfigurationProvider: NSObject {
             }
         }
         
+    }
+    
+    private func getConfigurations(for bundle: Bundle) -> NSDictionary? {
+        guard let data = openConfigurationPlist(with: bundle) else {
+            abortFor(reason: .unableToLoad, details: "Configuration.plist not found!")
+            return nil
+        }
+        
+        if let info = bundle.infoDictionary, let scheme = info["Scheme"] as? String {
+            if let schemeConfigurations = data.object(forKey: scheme.replacingOccurrences(of: "\"", with: "")) as? NSDictionary {
+                return schemeConfigurations
+//                configurations = schemeConfigurations
+//                schemeName = String(describing: scheme)
+                
+            }  else {
+                abortFor(reason: .levelNotFound, details: "Scheme level not found: \(schemeName ?? "not scheme")")
+            }
+        }
+        return nil
+    }
+    
+    private func openConfigurationPlist(with bundle: Bundle) -> NSDictionary? {
+        var allData: NSDictionary? = nil
+        if let path = bundle.path(forResource: "Configuration", ofType: "plist") {
+            let fileURL = URL(fileURLWithPath: path, isDirectory: false)
+            allData = NSDictionary(contentsOf: fileURL)
+        }
+        return allData
     }
     
     /// Abre o arquivo Configuration e retorna suas informações

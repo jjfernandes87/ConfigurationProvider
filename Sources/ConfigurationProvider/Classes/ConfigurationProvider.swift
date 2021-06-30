@@ -89,7 +89,7 @@ public class ConfigurationProvider: NSObject {
             return nil
         }
         
-        if let info = bundle.infoDictionary, let scheme = info["Scheme"] as? String {
+        if let info = Bundle.main.infoDictionary, let scheme = info["Scheme"] as? String {
             if let schemeConfigurations = data.object(forKey: scheme.replacingOccurrences(of: "\"", with: "")) as? NSDictionary {
                 return schemeConfigurations
 //                configurations = schemeConfigurations

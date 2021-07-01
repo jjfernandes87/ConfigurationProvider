@@ -2,7 +2,6 @@
 
 ConfigurationProvider é uma biblioteca para centralizar configurações do seu app escrita em Swift.
 
-[![CI Status](http://img.shields.io/travis/jjfernandes87/ConfigurationProvider.svg?style=flat)](https://travis-ci.org/jjfernandes87/ConfigurationProvider)
 [![Version](https://img.shields.io/cocoapods/v/ConfigurationProvider.svg?style=flat)](http://cocoapods.org/pods/ConfigurationProvider)
 [![License](https://img.shields.io/cocoapods/l/ConfigurationProvider.svg?style=flat)](http://cocoapods.org/pods/ConfigurationProvider)
 [![Platform](https://img.shields.io/cocoapods/p/ConfigurationProvider.svg?style=flat)](http://cocoapods.org/pods/ConfigurationProvider)
@@ -21,9 +20,9 @@ ConfigurationProvider é uma biblioteca para centralizar configurações do seu 
 
 ## Requirements
 
-- iOS 9.3+
-- Xcode 9.0+
-- Swift 4.0+
+- iOS 10.1+
+- Xcode 12.4+
+- Swift 5.0+
 
 ## Communication
 
@@ -33,7 +32,7 @@ ConfigurationProvider é uma biblioteca para centralizar configurações do seu 
 
 ## Example
 
-Para rodar o projeto de exemplo, clone o repositório, e rode o comando `pod install` no diretório Example primeiro.
+Para rodar o projeto de exemplo, clone o repositório, e rode o comando `cd Scripts && ./setup`.
 
 ## Installation
 
@@ -43,13 +42,17 @@ ConfigurationProvider esta disponível através [CocoaPods](http://cocoapods.org
 pod 'ConfigurationProvider', :git => 'https://github.com/jjfernandes87/ConfigurationProvider.git'
 ```
 
+```ruby
+pod 'ConfigurationProvider'
+```
+
 Então você precisa criar um arquivo plist chamado Configuration
 
 ```ruby
 Configuration.plist
 ```
 
-<img src="https://github.com/jjfernandes87/ConfigurationProvider/blob/master/imagens/plistFile.png" width="261" height="80" margin="10xp">
+<img src="https://github.com/jjfernandes87/ConfigurationProvider/blob/master/assets/plistFile.png" width="261" height="80" margin="10xp">
 
 O Configuration.plist é do tipo Dictionary e você precisa criar as chaves de configurações do seu app
 
@@ -60,7 +63,7 @@ O Configuration.plist é do tipo Dictionary e você precisa criar as chaves de c
 ]
 ```
 
-<img src="https://github.com/jjfernandes87/ConfigurationProvider/blob/master/imagens/configurationDetails.png" width="492" height="211" margin="10xp">
+<img src="https://github.com/jjfernandes87/ConfigurationProvider/blob/master/assets/configurationDetails.png" width="492" height="211" margin="10xp">
 
 Depois de criar e configurar seu Configuration.plist, você precisa adicionar uma chave no arquivo info.plist app, called Scheme
 
@@ -68,7 +71,7 @@ Depois de criar e configurar seu Configuration.plist, você precisa adicionar um
 Scheme = 'debug'
 ```
 
-<img src="https://github.com/jjfernandes87/ConfigurationProvider/blob/master/imagens/infoDetails.png" width="759" height="330" margin="10xp">
+<img src="https://github.com/jjfernandes87/ConfigurationProvider/blob/master/assets/infoDetails.png" width="759" height="330" margin="10xp">
 
 ## Author
 

@@ -1,0 +1,48 @@
+#!/bin/bash
+user="$1"
+token="$2"
+
+echo .
+echo =====================
+echo Starting tools setup
+echo =====================
+echo .
+
+
+# Brew
+#<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+echo .
+echo =====================
+echo Updating brew
+echo =====================
+echo .
+
+brew update
+#>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+# Xcodegen
+#<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+echo .
+echo =====================
+echo Installing xcodegen
+echo =====================
+echo .
+
+brew install xcodegen
+#>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+# Bundler
+#<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+echo .
+echo =====================
+echo Installing bundler
+echo =====================
+echo .
+
+cd ../ConfigurationProvider
+gem install bundler
+bundle update --bundler
+bundle install
+cd ../
+#>>>>>>>>>>>>>>>>>>>>>>>>>>>>>

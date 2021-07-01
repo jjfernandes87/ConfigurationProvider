@@ -15,12 +15,19 @@ DerivedData/
 ## Others
 Gemfile.lock
 Podfile.lock
+**/Gemfile.lock
+**/Podfile.lock
+
+## Projects and workspaces
+**/*.xcodeproj
+**/*.xcworkspace
 
 # Swift Package Manager
 #
 # Add this line if you want to avoid checking in source code from Swift Package Manager dependencies.
 # Packages/
 .build/
+**/.build/
 
 # CocoaPods
 #
@@ -29,6 +36,7 @@ Podfile.lock
 # https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
 #
 Pods/
+**/Pods/
 
 # Carthage
 #
@@ -36,6 +44,7 @@ Pods/
 # Carthage/Checkouts
 
 Carthage/Build
+**/Carthage/Build
 
 # fastlane
 #

@@ -1,0 +1,14 @@
+platform :ios, '10.1'
+use_frameworks!
+
+workspace 'ConfigurationProvider'
+
+target 'ConfigurationProvider' do
+  target 'ConfigurationProviderTests' do
+  end
+end
+
+target 'SampleApp' do
+  project 'SampleApp/SampleApp'
+  pod 'ConfigurationProvider', :path => '../'
+end

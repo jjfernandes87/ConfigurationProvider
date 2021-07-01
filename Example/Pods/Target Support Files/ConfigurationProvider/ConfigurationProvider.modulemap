@@ -1,6 +1,0 @@
-framework module ConfigurationProvider {
-  umbrella header "ConfigurationProvider-umbrella.h"
-
-  export *
-  module * { export * }
-}

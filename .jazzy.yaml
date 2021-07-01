@@ -5,4 +5,4 @@ root_url: https://github.com/jjfernandes87/ConfigurationProvider.git
 module: ConfigurationProvider
 output: docs
 theme: fullwidth
-xcodebuild_arguments: [-workspace, './Example/ConfigurationProvider.xcworkspace', -scheme, 'ConfigurationProvider']
+xcodebuild_arguments: [-workspace, './ConfigurationProvider/ConfigurationProvider.xcworkspace', -scheme, 'ConfigurationProvider']

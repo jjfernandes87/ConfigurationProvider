@@ -1,33 +1,40 @@
 {
   "warnings": [
     {
-      "file": "/Users/juliofernandes/Documents/Cocoapods/ConfigurationProvider/ConfigurationProvider/Classes/ConfigurationProvider.swift",
+      "file": "/Users/u001429/Documents/Github/ConfigurationProvider/ConfigurationProvider/ConfigurationProvider/Classes/ConfigurationProvider.swift",
+      "line": 11,
+      "symbol": "ConfigurationProvider",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/u001429/Documents/Github/ConfigurationProvider/ConfigurationProvider/ConfigurationProvider/Classes/ConfigurationProvider.swift",
       "line": 17,
       "symbol": "ConfigurationProvider",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/juliofernandes/Documents/Cocoapods/ConfigurationProvider/ConfigurationProvider/Classes/ConfigurationProvider.swift",
+      "file": "/Users/u001429/Documents/Github/ConfigurationProvider/ConfigurationProvider/ConfigurationProvider/Classes/ConfigurationProvider.swift",
       "line": 19,
       "symbol": "ConfigurationProvider.instance",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/juliofernandes/Documents/Cocoapods/ConfigurationProvider/ConfigurationProvider/Classes/URLConfigurationProvider.swift",
+      "file": "/Users/u001429/Documents/Github/ConfigurationProvider/ConfigurationProvider/ConfigurationProvider/Classes/URLConfigurationProvider.swift",
       "line": 19,
       "symbol": "URLConfigurationProvider",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/juliofernandes/Documents/Cocoapods/ConfigurationProvider/ConfigurationProvider/Classes/URLConfigurationProvider.swift",
+      "file": "/Users/u001429/Documents/Github/ConfigurationProvider/ConfigurationProvider/ConfigurationProvider/Classes/URLConfigurationProvider.swift",
       "line": 21,
       "symbol": "URLConfigurationProvider.instance",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/juliofernandes/Documents/Cocoapods/ConfigurationProvider"
+  "source_directory": "/Users/u001429/Documents/Github/ConfigurationProvider"
 }

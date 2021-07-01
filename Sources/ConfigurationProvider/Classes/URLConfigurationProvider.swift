@@ -38,8 +38,13 @@ public class URLConfigurationProvider: NSObject {
     ///   - replacements: parametros para ser substituido na URL original
     ///   - hasDomain: caso exista a chave domain
     /// - Returns: retorna a URL
-    public class func urlBy(tag: String, replacements: NSDictionary? = nil, hasDomain: Bool = false) -> URL? {
-        if let url = urlStringBy(tag: tag, replacements: replacements, hasDomain: hasDomain) {
+    public class func urlBy(
+        tag: String,
+        replacements: NSDictionary? = nil,
+        hasDomain: Bool = false,
+        bundle: Bundle = .main
+    ) -> URL? {
+        if let url = urlStringBy(tag: tag, replacements: replacements, hasDomain: hasDomain, bundle: bundle) {
             return URL(string: url)
         }
         
@@ -53,9 +58,16 @@ public class URLConfigurationProvider: NSObject {
     ///   - replacements: parametros para ser substituido na URL original
     ///   - hasDomain: caso exista a chave domain
     /// - Returns: retorna a URL (String)
-    public class func urlStringBy(tag: String, replacements: NSDictionary? = nil, hasDomain: Bool = false) -> String? {
-        return URLConfigurationProvider.shared().urlStringBy(tag: tag, replacements: replacements, hasDomain: hasDomain)
+    public class func urlStringBy(
+        tag: String,
+        replacements: NSDictionary? = nil,
+        hasDomain: Bool = false,
+        bundle: Bundle = .main
+    ) -> String? {
+        return URLConfigurationProvider.shared().urlStringBy(tag: tag, replacements: replacements, hasDomain: hasDomain, bundle: bundle)
     }
+    
+    
     
     //MARK: - Private Methods
     
@@ -65,9 +77,14 @@ public class URLConfigurationProvider: NSObject {
     ///   - tag: chave no arquivo de configuração
     ///   - replacements: parametros para ser substituido na URL original
     /// - Returns: retorna a URL (String)
-    private func urlStringBy(tag: String, replacements: NSDictionary?, hasDomain: Bool) -> String? {
+    private func urlStringBy(
+        tag: String,
+        replacements: NSDictionary?,
+        hasDomain: Bool,
+        bundle: Bundle = .main
+    ) -> String? {
         
-        guard let endpoints: NSDictionary = ConfigurationProvider.shared().getBy(tag: "endpoints") else {
+        guard let endpoints: NSDictionary = ConfigurationProvider.shared().getBy(tag: "endpoints", bundle: bundle) else {
             abortFor(reason: .tagNotFound, details: "Tag not found: \(tag)")
             return nil
         }
@@ -78,7 +95,7 @@ public class URLConfigurationProvider: NSObject {
         }
         
         if hasDomain {
-            guard let domain: String = ConfigurationProvider.shared().getBy(tag: "domain") else {
+            guard let domain: String = ConfigurationProvider.shared().getBy(tag: "domain", bundle: bundle) else {
                 abortFor(reason: .domainNotFound, details: "Domain not found")
                 return nil
             }
@@ -94,7 +111,7 @@ public class URLConfigurationProvider: NSObject {
             }
         }
             
-        urlString = urlString.replacingOccurrences(of: "${bundle}", with: Bundle.main.bundleURL.absoluteString)
+        urlString = urlString.replacingOccurrences(of: "${bundle}", with: bundle.bundleURL.absoluteString)
         
         guard let url = NSURL(string: urlString) else {
             abortFor(reason: .invalidURL, details: "Unable to convert URL: \(urlString)")

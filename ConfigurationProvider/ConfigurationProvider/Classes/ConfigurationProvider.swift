@@ -7,43 +7,22 @@
 
 import UIKit
 
-enum ConfigurationProviderAbortReason : Int {
+enum ConfigurationProviderAbortReason: Int {
     case unknown
     case unableToLoad
     case levelNotFound
     case tagNotFound
 }
 
-public class ConfigurationProvider: NSObject {
-    
-    public static var instance: ConfigurationProvider!
-    
-    var configurations: NSDictionary?
-    var schemeName: String?
-    
+public class ConfigurationProvider {
     //MARK: - Public Methods
-    
-    /// Singleton ConfigurationProvider
-    /// Incia a classe e acessa as configurações do Configuration.plist
-    ///
-    /// - Returns: retorna a classe ConfigurationProvider
-    public class func shared(bundle: Bundle = .main) -> ConfigurationProvider {
-        self.instance = (self.instance ?? ConfigurationProvider())
-        
-        if (self.instance.configurations == nil) {
-            _ = self.instance.getConfigurations(for: bundle)
-        }
-        
-        return self.instance
-    }
-
     /// Cria a excessão e informa o erro ocorrido
     ///
     /// - Parameters:
     ///   - reason: Tipo de excessão que será lançado
     ///   - details: mensagem de erro para ajudar o desenvolvedor a analisar o erro
-    func abortFor(reason: ConfigurationProviderAbortReason, details: String) -> Void {
-        let exceptionName: NSExceptionName!
+    static func abortFor(reason: ConfigurationProviderAbortReason, details: String) -> Void {
+        let exceptionName: NSExceptionName
         switch (reason) {
         case .unableToLoad:     exceptionName = NSExceptionName(rawValue: "ConfigurationProvider Error: Unable To Load")
         case .levelNotFound:    exceptionName = NSExceptionName(rawValue: "ConfigurationProvider Error: Level Not Found")
@@ -52,11 +31,9 @@ public class ConfigurationProvider: NSObject {
         }
         NSException(name: exceptionName, reason: details, userInfo: nil).raise()
     }
-    
 }
 
 public extension NSDictionary {
-    
     /// Acesso as chaves do NSDictionary
     ///
     /// - Parameter path: chave

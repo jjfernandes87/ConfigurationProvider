@@ -15,6 +15,7 @@ DerivedData/
 ## Others
 Gemfile.lock
 Podfile.lock
+**/*.xcworkspace
 
 # Swift Package Manager
 #
@@ -29,6 +30,7 @@ Podfile.lock
 # https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
 #
 Pods/
+**/Pods/
 
 # Carthage
 #
@@ -53,3 +55,6 @@ fastlane/README.md
 # reports
 
 reports/
+
+# macOS file system
+*.DS_Store

@@ -18,7 +18,7 @@ public protocol ConfigurationProviderProtocol {
     func getBy<T>(tag: String) -> T?
 }
 
-public class ConfigurationProvider: NSObject {
+public class ConfigurationProvider: NSObject, ConfigurationProviderProtocol {
     
     public static var instance: ConfigurationProvider!
     

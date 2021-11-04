@@ -14,7 +14,11 @@ enum ConfigurationProviderAbortReason : Int {
     case tagNotFound
 }
 
-public class ConfigurationProvider: NSObject {
+public protocol ConfigurationProviderProtocol {
+    func getBy<T>(tag: String) -> T?
+}
+
+public class ConfigurationProvider: NSObject, ConfigurationProviderProtocol {
     
     public static var instance: ConfigurationProvider!
     
